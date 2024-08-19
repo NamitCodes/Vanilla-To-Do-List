@@ -2,9 +2,18 @@
 //     console.log("hello, please switch themes")
 // }
 
-let todos = JSON.parse(localStorage.getItem("todos"));
-render(todos)
+// if(localStorage.getItem("todos") === null){}
 
+var todos = JSON.parse(localStorage.getItem("todos"));
+if(localStorage.getItem("todos") === null){
+    localStorage.setItem("todos", JSON.stringify(["Sample Note"]));
+    var todos = JSON.parse(localStorage.getItem("todos"));
+    console.log(todos);
+    
+    render(todos);
+} else{
+    render(todos)
+}
 
 function updateLocalStorage() {
     localStorage.setItem("todos", JSON.stringify(todos))
