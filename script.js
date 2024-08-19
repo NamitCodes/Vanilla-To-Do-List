@@ -58,7 +58,7 @@ function render(arr) {
 
         let input = document.createElement("input");
         input.setAttribute("type", "checkbox")
-        input.setAttribute("id", "todo"+i)
+        input.setAttribute("id", "todo" + i)
         input.setAttribute("onclick", `checkboxCheck(${i})`)
 
         let label = document.createElement("label");
@@ -115,14 +115,14 @@ function editTodo(id) {
 
     // pop-up the card
     editUp.setAttribute("class", "pop-up display")
-    console.log("Before:" + todos);  ///////
+    // console.log("Before:" + todos);  ///////
 
     // let editInput = document.getElementById("edit-todo-input");
 
     todos[id] = "";
 }
 
-function closeEditUp(){
+function closeEditUp() {
     // get header
     let header = document.getElementsByClassName('header')[0];
     // get container
@@ -135,32 +135,42 @@ function closeEditUp(){
     container.setAttribute("class", "container")
 }
 
-function updateEdit(){
-    
-    let editInput = document.getElementById("edit-todo-input");
-    for (let i = 0; i < todos.length; i++) {
-        if(todos[i] === ""){todos[i] = editInput.value;}     
-    }
-    render(todos)
+function updateEdit() {
+    // console.log("hi there!");
 
-    closeEditUp()
-    
+    let editInput = document.getElementById("edit-todo-input");
+    // console.log(editInput.value);
+
+
+    if (editInput.value === "") {
+        alert("Don't leave the todo empty, big Dawg")
+    } else {
+        for (let i = 0; i < todos.length; i++) {
+            if (todos[i] === "") { todos[i] = editInput.value; }
+        }
+        render(todos)
+
+        closeEditUp()
+    }
+
+
+
 
 }
 
 // FUNCTION TO STRIKETHROUGH TODO
-function checkboxCheck(id){
-    let checkbox = document.getElementById("todo"+id);
-    let text = checkbox.parentElement;  
-    if(checkbox.checked){
+function checkboxCheck(id) {
+    let checkbox = document.getElementById("todo" + id);
+    let text = checkbox.parentElement;
+    if (checkbox.checked) {
         text.setAttribute("class", "todo completed")
-    } else{
+    } else {
         text.setAttribute("class", "todo")
 
     }
-    
 
-    
+
+
 }
 
 
