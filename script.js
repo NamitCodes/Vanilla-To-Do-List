@@ -2,7 +2,15 @@
 //     console.log("hello, please switch themes")
 // }
 
-let todos = [];
+let todos = JSON.parse(localStorage.getItem("todos"));
+render(todos)
+
+
+function updateLocalStorage() {
+    localStorage.setItem("todos", JSON.stringify(todos))
+    let retArr = JSON.parse(localStorage.getItem("todos"))
+    return retArr;
+}
 
 function newPopUp() {
     // get header
@@ -43,8 +51,9 @@ function apply() {
         todos.push(newTodo);
         // console.log(todos);
         closePopUp()
-        document.getElementById("pop-up-input").value = "" // resets the input value     
-        render(todos)
+        document.getElementById("pop-up-input").value = "" // resets the input value
+
+        render(updateLocalStorage())
     }
 }
 
@@ -95,7 +104,7 @@ function render(arr) {
 
 function deleteTodo(id) {
     todos.splice(id, 1);
-    render(todos)
+    render(updateLocalStorage())
 }
 
 
@@ -117,7 +126,8 @@ function editTodo(id) {
     editUp.setAttribute("class", "pop-up display")
     // console.log("Before:" + todos);  ///////
 
-    // let editInput = document.getElementById("edit-todo-input");
+    let editInput = document.getElementById("edit-todo-input");
+    editInput.value = todos[id];
 
     todos[id] = "";
 }
@@ -148,7 +158,9 @@ function updateEdit() {
         for (let i = 0; i < todos.length; i++) {
             if (todos[i] === "") { todos[i] = editInput.value; }
         }
-        render(todos)
+        // console.log(todos);
+        
+        render(updateLocalStorage())
 
         closeEditUp()
     }
