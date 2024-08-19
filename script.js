@@ -6,7 +6,7 @@
 
 var todos = JSON.parse(localStorage.getItem("todos"));
 if(localStorage.getItem("todos") === null){
-    localStorage.setItem("todos", JSON.stringify(["Sample Note"]));
+    localStorage.setItem("todos", JSON.stringify(["P.S. Your data is saved in the browser!"]));
     var todos = JSON.parse(localStorage.getItem("todos"));
     console.log(todos);
     
