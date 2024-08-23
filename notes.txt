@@ -1,0 +1,20 @@
+# Fetching Elements
+- querySelector 
+- querySelectorAll
+- getElementById
+- getElementByClassName
+
+# Updating Elements
+- .innerHTML
+- .textContent
+
+# Deleting Elements
+- removeChild
+- onclick
+
+# Adding Elements
+- createElement
+- appendChild
+
+
+- setAttribute

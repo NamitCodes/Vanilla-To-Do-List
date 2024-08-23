@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>To-Do Pro</title>
+</head>
+
+<body class="light-theme">
+    <div class="header">
+        <div class="title">
+            <h1>TODO LIST</h1>
+        </div>
+        <div class="mainbar">
+            <input placeholder="Search note..." id="filterInput">
+            <form action="" onclick="">
+                <select name="choose" id="choose" class="select" onclick="showCompletedTodos()">
+                    <option value="all" onclick="">ALL</option>
+                    <option value="complete" onclick="">Complete</option>
+                    <option value="incomplete">Incomplete</option>
+                </select>
+            </form>
+            <div class="switch">
+                <img src="moon.svg" alt="" srcset="" class="switch-theme-btn" onclick="switchThemes()">
+            </div>
+        </div>
+
+    </div>
+    <div class="container">
+        <!-- <div class="todo">
+            <input type="checkbox" name="" id="todo1">
+            <label for="todo1" class="todo-label">Note#1</label>
+            <div class="buttons">
+                <span class="edit-icon" onclick="editTodo(0)">&#9998;</span>
+                <span class="delete-icon" onclick="deleteTodo(0)">&#128465;</span>
+            </div>
+
+        </div>
+        <div class="todo completed">
+            <input type="checkbox" name="" id="todo2" checked>
+            <label for="todo2" class="todo-label">Note#2</label>
+        </div>
+        <div class="todo">
+            <input type="checkbox" name="" id="todo3">
+            <label for="todo3" class="todo-label">Note#3</label>
+        </div> -->
+    </div>
+
+    <div class="pop-up">
+        <div class="pop-up-header">
+            <h1>NEW NOTE</h1>
+            <input type="text" placeholder="Input your note..." id="pop-up-input">
+        </div>
+        <div class="pop-up-btns">
+            <button class="pop-up-btns-cancel" onclick="closePopUp()">CANCEL</button>
+            <button class="pop-up-btns-apply" onclick="apply()">APPLY</button>
+        </div>
+    </div>
+
+    <div class="pop-up" id="Edit-Menu">
+        <div class="pop-up-header">
+            <h1>Edit Your Todo</h1>
+            <input type="text" placeholder="" id="edit-todo-input">
+        </div>
+        <div class="pop-up-btns">
+            <button class="pop-up-btns-cancel" onclick="closeEditUp()">CANCEL</button>
+            <button class="pop-up-btns-apply" onclick="updateEdit()">UPDATE</button>
+        </div>
+    </div>
+
+    <div class="footer">
+        <button class="add-btn" onclick="newPopUp()">+</button>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
